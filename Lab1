@@ -1,0 +1,75 @@
+PS C:\Users\user> psql -U postgres -d postgres -h localhost -p 5432
+Пароль пользователя postgres:
+
+psql (17.6)
+ПРЕДУПРЕЖДЕНИЕ: Кодовая страница консоли (866) отличается от основной
+                страницы Windows (1251).
+                8-битовые (русские) символы могут отображаться некорректно.
+                Подробнее об этом смотрите документацию psql, раздел
+                "Notes for Windows users".
+Введите "help", чтобы получить справку.
+
+postgres=# CREATE DATABASE mydb; \l \c mydb
+CREATE DATABASE
+                                                               ╤яшёюъ срч фрээ√ї
+    ╚ь     | ┬ырфхыхЎ | ╩юфшЁютър | ╧ЁютрщфхЁ ыюърыш |     LC_COLLATE      |      LC_CTYPE       | ╦юъры№ | ╧Ёртшыр ICU |     ╧Ёртр фюёЄєяр
+-----------+----------+-----------+------------------+---------------------+---------------------+--------+-------------+-----------------------
+ mydb      | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             |
+ postgres  | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             |
+ template0 | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             | =c/postgres          +
+           |          |           |                  |                     |                     |        |             | postgres=CTc/postgres
+ template1 | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             | =c/postgres          +
+           |          |           |                  |                     |                     |        |             | postgres=CTc/postgres
+(4 ёЄЁюъш)
+
+
+Вы подключены к базе данных "mydb" как пользователь "postgres".
+mydb=# \dt
+Отношения не найдены.
+mydb=# \l
+                                                               ╤яшёюъ срч фрээ√ї
+    ╚ь     | ┬ырфхыхЎ | ╩юфшЁютър | ╧ЁютрщфхЁ ыюърыш |     LC_COLLATE      |      LC_CTYPE       | ╦юъры№ | ╧Ёртшыр ICU |     ╧Ёртр фюёЄєяр
+-----------+----------+-----------+------------------+---------------------+---------------------+--------+-------------+-----------------------
+ mydb      | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             |
+ postgres  | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             |
+ template0 | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             | =c/postgres          +
+           |          |           |                  |                     |                     |        |             | postgres=CTc/postgres
+ template1 | postgres | UTF8      | libc             | Russian_Russia.1251 | Russian_Russia.1251 |        |             | =c/postgres          +
+           |          |           |                  |                     |                     |        |             | postgres=CTc/postgres
+(4 ёЄЁюъш)
+
+
+mydb=# \c postgres
+Вы подключены к базе данных "postgres" как пользователь "postgres".
+postgres=# \c template1
+Вы подключены к базе данных "template1" как пользователь "postgres".
+template1=# \dt
+Отношения не найдены.
+template1=# \d template1
+Отношение "template1" не найдено.
+template1=# \d cof
+Отношение "cof" не найдено.
+template1=# \d temp
+Отношение "temp" не найдено.
+template1=#  \q
+
+PS C:\Users\user> psql -U postgres -d mydb -h localhost -p 5432
+Пароль пользователя postgres:
+
+psql (17.6)
+mydb=# --create data CREATE TABLE students ( id SERIAL PRIMARY KEY,name VARCHAR(100), age INT );
+mydb=# CREATE TABLE students ( id SERIAL PRIMARY KEY,name VARCHAR(100), age INT );
+CREATE TABLE
+mydb=# INSERT INTO students (name, age) VALUES ('Alice', 21), ('Bob', 23);
+INSERT 0 2
+mydb=# SELECT * FROM students;
+ id | name  | age
+----+-------+-----
+  1 | Alice |  21
+  2 | Bob   |  23
+(2 ёЄЁюъш)
+
+mydb=# DROP TABLE students;
+DROP TABLE
+mydb=# \q
+PS C:\Users\user>
