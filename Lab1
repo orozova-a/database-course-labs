@@ -51,4 +51,25 @@ template1=# \d cof
 Отношение "cof" не найдено.
 template1=# \d temp
 Отношение "temp" не найдено.
-template1=#
+template1=#  \q
+
+PS C:\Users\user> psql -U postgres -d mydb -h localhost -p 5432
+Пароль пользователя postgres:
+
+psql (17.6)
+mydb=# --create data CREATE TABLE students ( id SERIAL PRIMARY KEY,name VARCHAR(100), age INT );
+mydb=# CREATE TABLE students ( id SERIAL PRIMARY KEY,name VARCHAR(100), age INT );
+CREATE TABLE
+mydb=# INSERT INTO students (name, age) VALUES ('Alice', 21), ('Bob', 23);
+INSERT 0 2
+mydb=# SELECT * FROM students;
+ id | name  | age
+----+-------+-----
+  1 | Alice |  21
+  2 | Bob   |  23
+(2 ёЄЁюъш)
+
+mydb=# DROP TABLE students;
+DROP TABLE
+mydb=# \q
+PS C:\Users\user>
