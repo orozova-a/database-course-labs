@@ -20,11 +20,11 @@ This project is a PostgreSQL database system designed to track book reading prog
 - SQL
 
 ## Files
-File | Description
-book_tracker_backup.sql | Full database backup 
-schema.sql | Table creation - database structure
-queries.sql | SQL queries
-data.sql | Sample Data
+| File | Description |
+- book_tracker_backup.sql | Full database backup 
+- schema.sql | Table creation - database structure
+- queries.sql | SQL queries
+- data.sql | Sample Data
 
 ## How to Restore
 1. Open pgAdmin
